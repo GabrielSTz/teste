@@ -16,7 +16,7 @@ username.addEventListener('keyup', () => {
 })
 
 
-saveHighScore = async (e) => {
+saveHighScore = e => {
     e.preventDefault()
 
 
@@ -24,21 +24,6 @@ saveHighScore = async (e) => {
         score: mostRecentScore,
         name: username.value
         }
-
-        try {
-            // Referência ao documento do usuário no Firestore
-            const userScoreRef = db.collection('highScores').doc(username.value);
-            const doc = await userScoreRef.get();
-    
-            if (doc.exists) {
-                // Atualize a pontuação se a nova for maior
-                if (doc.data().score < score.score) {
-                    await userScoreRef.update({ score: score.score });
-                }
-            } else {
-                // Se o documento não existir, crie um novo
-                await userScoreRef.set(score);
-            }
 
 
         highScores.push(score)
@@ -50,8 +35,6 @@ saveHighScore = async (e) => {
 
         highScores.splice(5)
 
-        window.location.assign('/');
-    } catch (error) {
-        console.error("Erro ao salvar o score: ", error);
-    }
+        localStorage.setItem('highScores', JSON.stringify(highScores))
+        window.location.assign('/')
 }
