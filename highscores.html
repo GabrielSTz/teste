@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <title>High Scores</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="highscores.css">
+    <script src="https://kit.fontawesome.com/d4d752deb6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCrf4TSVenf05K6KrHb5B660Mj_oFJ_pog",
+          authDomain: "quiz-5a183.firebaseapp.com",
+          projectId: "quiz-5a183",
+          storageBucket: "quiz-5a183.appspot.com",
+          messagingSenderId: "849520280007",
+          appId: "1:849520280007:web:4b842795199448b12299e2",
+          measurementId: "G-H1G71NW026"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+
+
+
+
+    <div class="container">
+        <div id="highScores" class="flex-center flex-column">
+           <h1 id="finalScore">Leaderboard</h1>
+            <ul id="highScoresList"></ul>
+            <a href="/" class="btn"> Inicio <i class="fas fa-home"></i></a>
+        </div>
+    </div>
+
+    <script src="highscores.js"></script>
+</body>
+
+</html>
